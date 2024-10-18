@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useUserStore } from "./provider";
+import OwnButton from "@/components/OwnButton";
 
 export default function Home() {
   const router = useRouter();
@@ -73,15 +74,9 @@ export default function Home() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className={`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ${
-            isLoading && "bg-blue-950"
-          }`}
-          disabled={isLoading}
-        >
+        <OwnButton isLoading={isLoading} type={"submit"} onClick={() => {}}>
           Submit
-        </button>
+        </OwnButton>
         {errorMsg != "" && <p className="mt-2 text-sm text-red-600 dark:text-red-500">{errorMsg}</p>}
       </form>
     </div>
